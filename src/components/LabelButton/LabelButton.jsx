@@ -8,7 +8,8 @@ export const LabelButton = ({size}) => {
                 type="select"
                 className={[`-${size}`]}
             >
-                <option></option>
+                {/* todo: */}
+                <option >To Do</option>
             </StyledLabelButton>
         </>
     )

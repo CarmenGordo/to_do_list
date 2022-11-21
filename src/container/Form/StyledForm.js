@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledLabelButton = styled.input`
+export const StyledForm = styled.input`
     background-color: red;
 
     &.-small{
