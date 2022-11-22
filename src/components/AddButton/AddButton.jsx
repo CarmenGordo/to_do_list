@@ -1,23 +1,22 @@
 import propTypes from "prop-types"
-import { StyledCheckbox } from "./StyledCheckbox";
+import { StyledAddButton } from "./StyledAddButton";
 
-export const Checkbox = ({size}) =>{
+export const AddButton = ({size}) =>{
     return(
         <>
-            <StyledCheckbox 
-                type="checkbox"
+            <StyledAddButton 
                 className={[`-${size}`]}
-            />
+            >Add</StyledAddButton>
         </>
     )
 }
 
-Checkbox.propTypes = {
+AddButton.propTypes = {
     size: propTypes.oneOf(["small", "medium", "large"]),
     onClick: propTypes.func
 }
 
-Checkbox.defaultProps = {
+AddButton.defaultProps = {
     size: "small",
     // todo
     // onClick: undefined

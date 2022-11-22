@@ -1,7 +1,14 @@
 import styled from "styled-components";
 
-export const StyledForm = styled.input`
-    background-color: red;
+export const StyledForm = styled.div`
+    display: inline;
+    justify-content: center;
+
+    &.-example{
+        /* todo: arreglar formato de ejemplo */
+        max-width: 20px;
+        background-color: greenyellow !important;
+    }
 
     &.-small{
         max-width: 20px;
@@ -16,5 +23,9 @@ export const StyledForm = styled.input`
     &.-large{
         max-width: 30px;
         border: solid 5px paleturquoise;
+    }
+
+    p{
+        display: inline;
     }
 `

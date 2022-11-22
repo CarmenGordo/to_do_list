@@ -1,16 +1,11 @@
-import { Form } from "./Form";
+import { AddButton } from "./AddButton";
 
-export default {
-    title: "Form",
-    component: Form
+export default{
+    title: "AddButton",
+    component: AddButton
 }
 
-const Template = (args) => <Form {...args} />
-
-export const Example = Template.bind({})
-Example.args = {
-    example: true,
-}
+const Template = (args) => <AddButton {...args} />
 
 export const Small = Template.bind({})
 Small.args = {

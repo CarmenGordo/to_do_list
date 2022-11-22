@@ -5,15 +5,43 @@ import { StyledForm } from "./StyledForm"
 import { Checkbox } from "../../components/Checkbox/Checkbox"
 import { Task } from "../../components/Task/Task"
 import {LabelButton} from "../../components/LabelButton/LabelButton"
+import {AddButton} from "../../components/AddButton/AddButton"
 
-export const Form = () =>{
+export const Form = ({example, size}) =>{
+
+    const notes = [
+        {
+          id: 1,
+          content: "Do the homework",
+          value: "inProgress"
+        },
+        {
+          id: 2,
+          content: "Clean the room",
+          value: ""
+        }
+    ]
+
     return(
         <>
-            <StyledForm>
-                <Checkbox />
-                <Task size="medium" />
-                <LabelButton />
+            {example ? 
+            <StyledForm className={["-exmaple", `-${size}`].join(" ")}>
+                {notes.map((note) =>(
+                        <>
+                        <Checkbox />
+                        <p>{note.content}</p>
+                        <LabelButton value={note.value}/>
+                        </>
+                    ))
+                }
             </StyledForm>
+            : 
+            <StyledForm className={[`-${size}`]}>
+                <Checkbox />
+                <Task />
+                <LabelButton />
+                <AddButton />
+            </StyledForm>}
         </>
     )
 }

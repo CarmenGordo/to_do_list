@@ -2,14 +2,40 @@ import propTypes from "prop-types"
 import { StyledLabelButton } from "./StyledLabelButton"
 
 export const LabelButton = ({size}) => {
+
+    const options =[
+        {
+            label: "To Do",
+            value: "toDo"
+        }, {
+            label: "In Progress",
+            value: "inProgress"
+        }, {
+            label: "Done",
+            value: "done"
+        }, {
+            label: "Hold",
+            value: "hold"
+        }, {
+            label: "Dropped",
+            value: "dropped"
+        }
+    ]
+
+
     return(
         <>
             <StyledLabelButton
-                type="select"
+                
                 className={[`-${size}`]}
             >
                 {/* todo: */}
-                <option >To Do</option>
+                {options.map((option)=> (
+                    <option 
+                        value={option.value}
+                        className={[`-${option.value}`]}
+                    >{option.label}</option>
+                ))}
             </StyledLabelButton>
         </>
     )
@@ -17,11 +43,13 @@ export const LabelButton = ({size}) => {
 
 LabelButton.propTypes = {
     size: propTypes.oneOf(["small", "medium", "large"]),
+    value: propTypes.oneOf(["toDo", "inProgress", "done", "hold", "dropped"]),
     onClick: propTypes.func
 }
 
 LabelButton.defaultProps = {
     size: "small",
-    // todo
+    value: "toDo"
+    // todo:
     // onClick: undefined
 }
