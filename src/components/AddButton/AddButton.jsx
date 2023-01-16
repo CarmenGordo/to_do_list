@@ -1,7 +1,7 @@
 import propTypes from "prop-types"
 import { StyledAddButton } from "./StyledAddButton";
 
-export const AddButton = ({size}) =>{
+export const AddButton = ({size,}) =>{
     return(
         <>
             <StyledAddButton 

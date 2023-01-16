@@ -1,17 +1,17 @@
 import styled from "styled-components";
 
-export const StyledForm = styled.div`
-    display: inline;
-    justify-content: center;
+export const StyledForm = styled.form`
+    /* width: auto; */
+    /* display: flex; */
+    /* justify-content: center; */
+    background-color: beige;
 
     &.-example{
         /* todo: arreglar formato de ejemplo */
-        max-width: 20px;
         background-color: greenyellow !important;
     }
 
     &.-small{
-        max-width: 20px;
         border: solid 5px palegoldenrod;
     }
 
@@ -21,7 +21,6 @@ export const StyledForm = styled.div`
     }
 
     &.-large{
-        max-width: 30px;
         border: solid 5px paleturquoise;
     }
 

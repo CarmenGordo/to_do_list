@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
-export const StyledLabelButton = styled.div`
+export const StyledEmotionLabel = styled.div`
     background-color: aliceblue;
     display: inline;
+    border-radius: 50%;
 
     &.-small{
         max-width: 20px;
+        max-height: 20px;
         border: solid 5px palegoldenrod;
     }
 

@@ -26,16 +26,16 @@ export const LabelButton = ({size}) => {
     return(
         <>
             <StyledLabelButton
-                
                 className={[`-${size}`]}
             >
-                {/* todo: */}
-                {options.map((option)=> (
-                    <option 
-                        value={option.value}
-                        className={[`-${option.value}`]}
-                    >{option.label}</option>
-                ))}
+                <select name="" id="">
+                    {options.map((option)=> (                   
+                        <option 
+                            value={option.value}
+                            className={[`-${option.value}`]}
+                        >{option.label}</option>
+                    ))}
+                </select>
             </StyledLabelButton>
         </>
     )

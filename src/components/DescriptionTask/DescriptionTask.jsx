@@ -1,28 +1,28 @@
 import propTypes from "prop-types"
-import { StyledTask } from "./StyledTask"
+import { StyledDescriptionTask } from "./StyledDescriptionTask"
 
-export const Task = ({size, title, handleWriteNewNote}) => {
+export const DescriptionTask = ({size, title, handleWriteNewNote}) => {
 
     return(
         <>
-            <StyledTask
+            <StyledDescriptionTask
                 type="text"
                 className={[`-${size}`]}
                 onChange={handleWriteNewNote}
-                placeholder="Título tarea"
+                placeholder="Descripcion tarea"
             >
                 {title}
-            </StyledTask>
+            </StyledDescriptionTask>
         </>
     )
 }
 
-Task.propTypes = {
+DescriptionTask.propTypes = {
     size: propTypes.oneOf(["small", "medium", "large"]),
     title: propTypes.string,
     onChange: propTypes.func
 }
 
-Task.defaultProps = {
+DescriptionTask.defaultProps = {
     size: "small",
 }
