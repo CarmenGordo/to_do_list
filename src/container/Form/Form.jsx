@@ -1,32 +1,15 @@
-import { useState } from "react"
 import propTypes from "prop-types"
 import { StyledForm } from "./StyledForm"
 
 // Component
-import { Checkbox } from "../../components/Checkbox/Checkbox"
 import { Task } from "../../components/Task/Task"
 import {LabelButton} from "../../components/LabelButton/LabelButton"
 import {AddButton} from "../../components/AddButton/AddButton"
 import { DescriptionTask } from "../../components/DescriptionTask/DescriptionTask"
 import { EmotionLabel } from "../../components/EmotionLabel/EmotionLabel"
 
-// todo: trasladar las exampleNotes
-// const exampleNotes = [
-//     {
-//       id: 1,
-//       title: "Do the homework",
-//       value: "inProgress",
-//       description: "Do the homework for my JavaScript review class."          
-//     },
-//     {
-//       id: 2,
-//       title: "Clean the room",
-//       value: "",
-//       description: "Clean up the room and put all the notes in order."
-//     }
-// ]
 
-export const Form = ({handleWriteNewNote,handleAddNewNote, size}) =>{
+export const Form = ({handleWriteNewNote,handleAddNewNote, handleWriteDescription,emotionalOptions,handleChooseEmotionalLabel, size}) =>{
 
     // const [notes, setNotes] = useState(exampleNotes)
     // const [newNote, setNewNote] = useState("")
@@ -65,11 +48,11 @@ export const Form = ({handleWriteNewNote,handleAddNewNote, size}) =>{
             <StyledForm className={[`-${size}`]} onSubmit={handleAddNewNote}>
          
                 <h2>Añadir tarea</h2>
-                <Task handleWriteNewNote={handleWriteNewNote}/>
+                <Task required handleWriteNewNote={handleWriteNewNote}/>
                 <LabelButton/>
                 <AddButton />
-                <EmotionLabel />
-                <DescriptionTask />
+                <EmotionLabel emotionalOptions={emotionalOptions} handleChooseEmotionalLabel={handleChooseEmotionalLabel} />
+                <DescriptionTask handleWriteDescription={handleWriteDescription} />
 
             </StyledForm>
         </>

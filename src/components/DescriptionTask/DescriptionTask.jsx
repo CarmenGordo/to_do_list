@@ -1,17 +1,16 @@
 import propTypes from "prop-types"
 import { StyledDescriptionTask } from "./StyledDescriptionTask"
 
-export const DescriptionTask = ({size, title, handleDescriptionNote}) => {
-    // todo: cambiar para escribir la descripcion de la nota
+export const DescriptionTask = ({size, description, handleWriteDescription}) => {
     return(
         <>
             <StyledDescriptionTask
                 type="text"
                 className={`-${size}`}
-                onChange={handleDescriptionNote}
+                onChange={handleWriteDescription}
                 placeholder="Write the task description"
             >
-                {title}
+                {description}
             </StyledDescriptionTask>
         </>
     )
@@ -19,7 +18,7 @@ export const DescriptionTask = ({size, title, handleDescriptionNote}) => {
 
 DescriptionTask.propTypes = {
     size: propTypes.oneOf(["small", "medium", "large"]),
-    title: propTypes.string,
+    description: propTypes.string,
     onChange: propTypes.func
 }
 

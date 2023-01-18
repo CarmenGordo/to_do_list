@@ -3,16 +3,12 @@ import styled from "styled-components";
 export const StyledEmotionalContainer = styled.div`
     width: 100%;
     background-color: aliceblue;
-    display: flex;
 
     &.-small{
-        max-width: 20px;
-        max-height: 20px;
         /* border: solid 5px palegoldenrod; */
     }
 
     &.-medium{
-        max-width: 25px;
         /* border: solid 5px palegreen; */
     }
 
@@ -20,16 +16,40 @@ export const StyledEmotionalContainer = styled.div`
         max-width: 30px;
         /* border: solid 5px paleturquoise; */
     }
+
 `
 export const StyledEmotionalInput = styled.input`
-    opacity: 0
+    opacity: 0;
 `
 export const StyledEmotionalLabel = styled.label`
     border-radius: 50%;
-    background-color: antiquewhite;
+
     ${StyledEmotionalInput}:checked{
         box-shadow: 0px 22px 26px 0px rgba(255,0,255,1);
         border: solid 5px red;
+    }
+
+    
+    /* Type of the label depend on the emotion */ 
+    &.-focus1{
+        /* border: solid 5px palegoldenrod; */
+        background-color: palegreen;
+    }
+    &.-focus2{
+        /* border: solid 5px palegoldenrod; */
+        background-color: paleturquoise;
+    }
+    &.-focus3{
+        /* border: solid 5px palegoldenrod; */
+        background-color: palevioletred;
+    }
+    &.-focus4{
+        /* border: solid 5px palegoldenrod; */
+        background-color: papayawhip;
+    }
+    &.-focus5{
+        /* border: solid 5px palegoldenrod; */
+        background-color: peachpuff;
     }
 `
 
