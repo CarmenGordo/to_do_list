@@ -10,6 +10,25 @@ import {AddButton} from "../../components/AddButton/AddButton"
 import { DescriptionTask } from "../../components/DescriptionTask/DescriptionTask"
 import { EmotionLabel } from "../../components/EmotionLabel/EmotionLabel"
 
+export const Prueba = ({ label }) => {
+    const [isChecked, setIsChecked] = useState(false);
+    return (
+      <div className="checkbox-wrapper">
+        <label>
+
+          <input type="checkbox"checked={isChecked} onChange={() => setIsChecked((prev) => !prev)}/>
+          <input type="checkbox"checked={isChecked} onChange={() => setIsChecked((prev) => !prev)}/>
+          <input type="checkbox"checked={!isChecked} onChange={() => setIsChecked((prev) => !prev)}/>
+
+          <span>aaaaaa----</span>
+
+        </label>
+
+        <p>{isChecked ? "Selected" : "Unchecked"}</p>
+      </div>
+    );
+  };
+
 export const Form = ({example, size}) =>{
 
     const notes = [
@@ -54,7 +73,7 @@ export const Form = ({example, size}) =>{
         <>
             {example ? 
                 notes.map(note =>(
-                     <StyledForm key={note.id} className={["-exmaple", `-${size}`].join(" ")}>
+                     <StyledForm key={note.id} className={["-example", `-${size}`].join(" ")}>
                         <Checkbox />
                         <p>{note.content}</p>
                         <LabelButton value={note.value}/>
@@ -68,6 +87,9 @@ export const Form = ({example, size}) =>{
                 <AddButton />
                 <EmotionLabel />
                 <DescriptionTask />
+
+                <br/><br/><br/>
+                <Prueba></Prueba>
             </StyledForm>}
         </>
     )

@@ -1,5 +1,6 @@
 import propTypes from "prop-types"
-import { StyledEmotionLabel } from "./StyledEmotionLabel"
+import { useState } from "react"
+import { StyledEmotionalContainer,StyledEmotionalInput, StyledEmotionalLabel, StyledEmotionalLabelText} from "./StyledEmotionLabel"
 
 export const EmotionLabel = ({size}) => {
 
@@ -9,36 +10,56 @@ export const EmotionLabel = ({size}) => {
     const emotionalOptions =[
         {
             label: "Focus",
-            value: "focus"
+            value: "focus",
+            id: 1
         }, {
             label: "In Progress",
-            value: "inProgress"
+            value: "inProgress",
+            id: 2
         }, {
             label: "Done",
-            value: "done"
+            value: "done",
+            id: 3
         }, {
             label: "Hold",
-            value: "hold"
+            value: "hold",
+            id: 4
         }, {
             label: "Dropped",
-            value: "dropped"
+            value: "dropped",
+            id: 5
         }
     ]
+    const [isChecked, setIsChecked] = useState(false)
 
     return(
         <>
-            <p>How do I feel about this task?</p>
+            <StyledEmotionalContainer
+                className={`-${size}`}
+            > 
+                <p>How do I feel about this task?</p>
 
-            <StyledEmotionLabel
-                className={[`-${size}`]}
-            >
-                {emotionalOptions.map((option)=> (                   
-                    <option 
-                        value={option.value}
-                        className={[`-${option.value}`]}
-                    >{option.label}</option>
+                {emotionalOptions.map((option)=> (    
+                    
+                    <StyledEmotionalLabel>
+                        {/* todo: poner img y/o cambiar el color de la bola para cada una de las emociones */}
+                        <StyledEmotionalInput 
+                            type='checkbox'
+                            value={option.value}
+                            id={option.id}
+                            className={`-${option.value}`}
+                            checked={isChecked === option.value}
+                            onChange={()=> setIsChecked(option.value)}
+                        />
+
+                        <StyledEmotionalLabelText>{option.label}</StyledEmotionalLabelText>
+
+                    </StyledEmotionalLabel>
+                    
                 ))}
-            </StyledEmotionLabel>
+            
+            </StyledEmotionalContainer>
+            
         </>
     )
 }

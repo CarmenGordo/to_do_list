@@ -4,7 +4,11 @@ export const StyledForm = styled.form`
     /* width: auto; */
     /* display: flex; */
     /* justify-content: center; */
-    background-color: beige;
+    /* background-color: beige; */
+    
+    @media screen and (min-width: 768px) {
+        background-color: ${props => (props.small ? 'beige' : 'grey')};
+    }
 
     &.-example{
         /* todo: arreglar formato de ejemplo */
