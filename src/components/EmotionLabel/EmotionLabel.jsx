@@ -49,7 +49,7 @@ export const EmotionLabel = ({size}) => {
                             id={option.id}
                             className={`-${option.value}`}
                             checked={isChecked === option.value}
-                            onChange={()=> setIsChecked(option.value)}
+                            onChange={()=> [setIsChecked(option.value), console.log("checked---",option.value)]}
                         />
 
                         <StyledEmotionalLabelText>{option.label}</StyledEmotionalLabelText>

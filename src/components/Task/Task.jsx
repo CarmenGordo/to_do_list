@@ -9,7 +9,7 @@ export const Task = ({size, title, handleWriteNewNote}) => {
                 type="text"
                 className={[`-${size}`]}
                 onChange={handleWriteNewNote}
-                placeholder="Título tarea"
+                placeholder="Name of the task"
             >
                 {title}
             </StyledTask>
@@ -25,4 +25,5 @@ Task.propTypes = {
 
 Task.defaultProps = {
     size: "small",
+    // todo: tl Title is Required
 }
