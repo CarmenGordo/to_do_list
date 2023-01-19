@@ -4,12 +4,7 @@ import { StyledEmotionalContainer,StyledEmotionalInput, StyledEmotionalLabel, St
 
 export const EmotionLabel = ({emotionalOptions,handleChooseEmotionalLabel, size}) => {
 
-    // todo: the emotional options
-    // enfocado, feliz/contento, triste, confundido, agobiado/anxioso, confiado, 
-    // focus, happy, afraid, confident, confused, 
     const [isChecked, setIsChecked] = useState()
-
-    
    
     return(
         <>

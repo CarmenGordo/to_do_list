@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledListNotes = styled.div`
     width: 100%;
     background-color: aliceblue;
+    border: solid 2px red;
     display: flex;
     align-items: center;
 

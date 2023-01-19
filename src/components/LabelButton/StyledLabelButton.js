@@ -1,30 +1,32 @@
 import styled from "styled-components";
 
-export const StyledLabelButton = styled.div`
+export const StyledLabelButton = styled.select`
     background-color: aliceblue;
     display: inline;
 
     &.-small{
-        max-width: 20px;
+        max-width: 200px;
         border: solid 5px palegoldenrod;
     }
 
     &.-medium{
-        max-width: 25px;
+        max-width: 250px;
         border: solid 5px palegreen;
     }
 
     &.-large{
-        max-width: 30px;
+        max-width: 300px;
         border: solid 5px paleturquoise;
     }
+`
+export const StyledOptionsSelect = styled.option`
 
     &.-toDo{
         color: red
     }
 
     &.-inProgress{
-        color: green
+        color: yellow
     }
 
     &.-done{
@@ -32,10 +34,10 @@ export const StyledLabelButton = styled.div`
     }
 
     &.-hold{
-        color: blueviolet
+        color: violet
     }
 
     &.-dropped{
-        color: brown;
+        color: grey;
     }
 `

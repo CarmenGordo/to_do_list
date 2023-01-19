@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledDescriptionTask = styled.input`
+export const StyledDescriptionTask = styled.textarea`
     /* width: 100%; */
     background-color: grey;
 

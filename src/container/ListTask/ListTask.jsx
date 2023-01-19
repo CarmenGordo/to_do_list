@@ -1,20 +1,40 @@
+import { useState } from "react"
 import { StyledListNotes } from "./StyledListTask"
 import { Checkbox } from "../../components/Checkbox/Checkbox"
 import { LabelButton } from "../../components/LabelButton/LabelButton"
-import { EmotionLabel } from "../../components/EmotionLabel/EmotionLabel"
+import { StyledLabelButton, StyledOptionsSelect } from "../../components/LabelButton/StyledLabelButton"
 import { EmotionCircle } from "../../components/EmotionLabel/EmotionCircle"
+import { TrashButton } from "../../components/TrashButton/TrashButton"
 
-export const ListTask = ({notes, emotionalOptions}) =>{
+export const ListTask = ({notes, optionsLabel, handleChangeLabel, handleRemoveTask, size}) =>{
+
     return(
         <>
-            {notes.map(note =>(
-                <StyledListNotes>
+            {notes.map((note) =>(
+                <StyledListNotes >
                     <Checkbox />
-                    <p key={note.id}>{note.title}</p>
-                    <LabelButton label={note.label}/>
+                    <p>{note.title}</p>                    
 
-                    
-                    <EmotionCircle emotion={note.emotionalLabel} />
+                    {/* todo: poner estilos al select */}
+                    <StyledLabelButton onChange={handleChangeLabel}>
+                    {optionsLabel?.map((option) => 
+                    (                   
+                    <StyledOptionsSelect 
+                        key={option.id}
+                        value={option.value}
+                        className={`-${option.value}`}
+                        selected={note.label === option.value}
+                    >{option.label}</StyledOptionsSelect>
+                    ))}    
+                    </StyledLabelButton>
+
+                    {/* todo: poner el emotionLabel */}
+                    {/* <EmotionCircle emotion={note.emotionalLabel} /> */}
+
+                    <TrashButton 
+                        notes={notes}
+                        handleRemoveTask={handleRemoveTask}
+                    />
               
                 </StyledListNotes>
             ))}

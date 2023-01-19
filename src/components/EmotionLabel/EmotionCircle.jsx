@@ -1,5 +1,5 @@
 import propTypes from "prop-types"
-import { StyledEmotionalLabel } from "./StyledEmotionLabel"
+import { StyledEmotionalLabel, StyledEmotionalLabelText } from "./StyledEmotionLabel"
 
 export const EmotionCircle = ({emotion, size}) => {
    
@@ -7,8 +7,10 @@ export const EmotionCircle = ({emotion, size}) => {
         <> 
             <StyledEmotionalLabel 
             className={`-${emotion}`}
-            onClick>
-                <p>{emotion}</p>
+            // todo: onClick to open modal
+            >
+                {/* todo: PETA show the emotional label */}
+                <StyledEmotionalLabelText key={emotion.id}>{emotion}</StyledEmotionalLabelText>
             </StyledEmotionalLabel>
         </>
     )

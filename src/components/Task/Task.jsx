@@ -6,6 +6,7 @@ export const Task = ({size, title, handleWriteNewNote}) => {
     return(
         <>
             <StyledTask
+                required
                 type="text"
                 className={[`-${size}`]}
                 onChange={handleWriteNewNote}

@@ -1,11 +1,8 @@
 import { useState } from 'react';
 import { Form } from './container/Form/Form';
-import { Checkbox } from './components/Checkbox/Checkbox';
-import { LabelButton } from './components/LabelButton/LabelButton';
 import { ListTask } from './container/ListTask/ListTask';
 
 // todo: trasladar las exampleNotes
-
 const exampleNotes = [
   {
     id: 1,
@@ -23,6 +20,33 @@ const exampleNotes = [
   }
 ]
 
+const optionsLabel =[
+  {
+      label: "To Do",
+      value: "toDo",
+      id: 1
+  }, {
+      label: "In Progress",
+      value: "inProgress",
+      id: 2
+  }, {
+      label: "Done",
+      value: "done",
+      id: 3
+  }, {
+      label: "Hold",
+      value: "hold",
+      id: 4
+  }, {
+      label: "Dropped",
+      value: "dropped",
+      id: 5
+  }
+]
+
+// todo: the emotional options
+    // enfocado, feliz/contento, triste, confundido, agobiado/anxioso, confiado, 
+    // focus, happy, afraid, confident, confused, 
 const emotionalOptions =[
   {
       label: "focus1",
@@ -56,9 +80,15 @@ function App() {
   // To write the description of the Task (DescriptionTask Component)
   const [descriptionNote, setDescriptionNote] = useState()
   // To the label ot the Task (LabelButton Component)
-  const [labelNote, setLabelNote] = useState(emotionalOptions)
+  const [labelNote, setLabelNote] = useState()
   // To the emotional label ot the Task (EmotionalLabel Component)
   const [emotionalLabelNote, setEmotionalLabelNote] = useState(emotionalOptions)
+  // To reset the task or change somethimg
+  // const [resetLabel, setResetLabel] = useState(optionsLabel)
+  // To remove a Task
+  const [remove, setRemove] = useState(exampleNotes)
+
+
 
   // To write the New Note
   const handleWriteNewNote= (event)=>{
@@ -107,13 +137,57 @@ function App() {
       setNewNote("")
   }
 
+  // todo: To change the value when the LabelButton've changed
+  const handleChangeLabel = (event)=>{
+
+  //   const changesTask = event.target.value
+  //   const selection = ""
+  //   console.log("changesTask---", changesTask)
+
+  //   const resetTask = {
+  //     // title: newNote,
+  //     // description: descriptionNote,
+  //     label: labelNote,
+  //     // emotionalLabel: emotionalLabelNote
+  // }
+  //   console.log("resetTask--", resetTask)
+  //   for (let i = 0; i < resetLabel.length; i++) {
+  //     if (changesTask[i].selected) {
+  //       selection.push(changesTask[i].value)
+  //       console.log("if--", selection)
+  //     }      
+  //   }    
+  
+  //   setResetLabel(selection)
+  //   setNotes([...notes, resetTask])
+  //   console.log("notes---", notes)
+  }
+
+  // To remove a Task
+  const handleRemoveTask =(id)=>{
+    console.log("removed---")
+
+    const newList = remove.filter((note) => note.id !== id);
+    setNotes(newList);
+  }
 
   return (
     <>
     
-      <Form handleWriteNewNote={handleWriteNewNote} handleAddNewNote={handleAddNewNote} handleWriteDescription={handleWriteDescription} handleChooseLabel={handleChooseLabel} emotionalOptions={emotionalOptions} handleChooseEmotionalLabel={handleChooseEmotionalLabel} />
+      <Form 
+        handleWriteNewNote={handleWriteNewNote}
+        handleAddNewNote={handleAddNewNote}
+        handleWriteDescription={handleWriteDescription}
+        principal optionsLabel={optionsLabel} labelNote={labelNote} handleChooseLabel={handleChooseLabel} handleChangeLabel={handleChangeLabel}
+        emotionalOptions={emotionalOptions} handleChooseEmotionalLabel={handleChooseEmotionalLabel} 
+      />
 
-      <ListTask notes={notes} emotionalOptions={emotionalOptions} />
+      <ListTask 
+        notes={notes} 
+        emotionalOptions={emotionalOptions} 
+        optionsLabel={optionsLabel} labelNote={labelNote} handleChangeLabel={handleChangeLabel}
+        handleRemoveTask={handleRemoveTask}
+      />
       
     </>
   );

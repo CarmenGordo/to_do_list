@@ -9,47 +9,15 @@ import { DescriptionTask } from "../../components/DescriptionTask/DescriptionTas
 import { EmotionLabel } from "../../components/EmotionLabel/EmotionLabel"
 
 
-export const Form = ({handleWriteNewNote,handleAddNewNote, handleWriteDescription,emotionalOptions,handleChooseEmotionalLabel, size}) =>{
-
-    // const [notes, setNotes] = useState(exampleNotes)
-    // const [newNote, setNewNote] = useState("")
-
-    // const handleWriteNewNote= (event)=>{
-    //     const writeNote = event.target.value
-    //     console.log("writeNote", writeNote)
-    //     setNewNote(writeNote)
-    // }
-
-    // const handleAddNewNote = (event) =>{
-    //     event.preventDefault()
-
-    //     const addNote = {
-    //         id: notes.length + 1,
-    //         title: newNote
-    //     }
-    //     console.log("bbb", addNote)
-
-    //     setNotes([...notes, addNote])
-    //     // setNote(note.concat(addNote))
-    //     console.log("ccc", notes)
-    // }
+export const Form = ({handleWriteNewNote,handleAddNewNote, handleWriteDescription, optionsLabel, labelNote, handleChooseLabel,handleResetLabel, emotionalOptions,handleChooseEmotionalLabel, size}) =>{
 
     return(
-        <>
-            
-            {/* {notes.map(note =>(
-                <>
-                    <Checkbox />
-                    <p key={note.id}>{note.title}</p>
-                    <LabelButton label={note.value}/>
-                </>
-            ))} */}
-            
-            <StyledForm className={[`-${size}`]} onSubmit={handleAddNewNote}>
+        <>           
+            <StyledForm className={`-${size}`} onSubmit={handleAddNewNote}>
          
-                <h2>Añadir tarea</h2>
+                <h2>Add a task</h2>
                 <Task required handleWriteNewNote={handleWriteNewNote}/>
-                <LabelButton/>
+                <LabelButton optionsLabel={optionsLabel} labelNote={labelNote} handleChooseLabel={handleChooseLabel}  />
                 <AddButton />
                 <EmotionLabel emotionalOptions={emotionalOptions} handleChooseEmotionalLabel={handleChooseEmotionalLabel} />
                 <DescriptionTask handleWriteDescription={handleWriteDescription} />
