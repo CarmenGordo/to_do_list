@@ -1,11 +1,7 @@
 import propTypes from "prop-types"
-import { useState } from "react"
 import { StyledEmotionalContainer,StyledEmotionalInput, StyledEmotionalLabel, StyledEmotionalLabelText} from "./StyledEmotionLabel"
 
-export const EmotionLabel = ({emotionalOptions,handleChooseEmotionalLabel, size}) => {
-
-    const [isChecked, setIsChecked] = useState()
-   
+export const EmotionLabel = ({emotionalOptions, emotionalLabelNote,handleChooseEmotionalLabel, size}) => {   
     return(
         <>
             <StyledEmotionalContainer
@@ -21,9 +17,10 @@ export const EmotionLabel = ({emotionalOptions,handleChooseEmotionalLabel, size}
                             type='checkbox'
                             value={option.value}
                             id={option.id}
-                            key={option.id}         
-                            checked={isChecked === option.value}
-                            onChange={()=> [setIsChecked(option.value), console.log("checked---",option.value)]}
+                            key={option.id}
+                            checked={emotionalLabelNote === option.value}
+                            onClick={handleChooseEmotionalLabel}
+
                         />
 
                         <StyledEmotionalLabelText>{option.label}</StyledEmotionalLabelText>

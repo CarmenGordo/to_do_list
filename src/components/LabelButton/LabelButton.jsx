@@ -1,22 +1,21 @@
 import propTypes from "prop-types"
 import { StyledOptionsSelect, StyledLabelButton } from "./StyledLabelButton"
 
-export const LabelButton = ({ optionsLabel, labelNote, handleChooseLabel, handleChangeLabel, size}) => {
+export const LabelButton = ({ optionsLabel, labelNote, handleChooseLabel,handleChangeLabel, size}) => {
    
     return(
         <>
             <StyledLabelButton
+            isReq 
                 className={`-${size}`}
-                required
                 onChange={handleChooseLabel}
-                // todo: resetear el estado del task
-                // onClick={handleChangeLabel}
             >
-                <option disabled selected>Choose an feature</option>
+                <option disabled selected>Choose a feature</option>
                 {optionsLabel?.map((option) => 
                 (                   
                     <StyledOptionsSelect 
                         key={option.id}
+                        id={option.id}
                         value={option.value}
                         className={`-${option.value}`}
                         selected={labelNote === option.value}

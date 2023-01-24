@@ -82,10 +82,9 @@ function App() {
   // To the label ot the Task (LabelButton Component)
   const [labelNote, setLabelNote] = useState()
   // To the emotional label ot the Task (EmotionalLabel Component)
-  const [emotionalLabelNote, setEmotionalLabelNote] = useState(emotionalOptions)
-  // To reset the task or change somethimg
-  // const [resetLabel, setResetLabel] = useState(optionsLabel)
-
+  const [emotionalLabelNote, setEmotionalLabelNote] = useState()
+  // To change the LabelButton depend on the checkbox
+  const [checked, setChecked] = useState(false)
 
 
 
@@ -103,7 +102,7 @@ function App() {
     setDescriptionNote(writeDescription)
   }
 
-  // To the label notes (LabelButton) of the Task
+  // To the choose the label notes (LabelButton) of the Task
   const handleChooseLabel = (event)=>{
     const chooseLabel = event.target.value
     console.log("chooseLabel---", chooseLabel)
@@ -113,7 +112,7 @@ function App() {
   // To the emocional notes of the Task
   const handleChooseEmotionalLabel = (event)=>{
     const chooseEmotion = event.target.value
-    console.log("chooseEmotion---", chooseEmotion)
+    console.log("chooseEmotion>>---", chooseEmotion)
     setEmotionalLabelNote(chooseEmotion)
   }
 
@@ -134,32 +133,35 @@ function App() {
       // setNote(note.concat(addNote))
       // todo: reset the input
       setNewNote("")
+      setEmotionalLabelNote()
   }
 
-  // todo: To change the value when the LabelButton've changed
-  const handleChangeLabel = (event)=>{
+  // To change the value when the LabelButton've changed
+  const handleChangeLabel = (event, id)=>{
 
-  //   const changesTask = event.target.value
-  //   const selection = ""
-  //   console.log("changesTask---", changesTask)
+    const label = event.target.value
 
-  //   const resetTask = {
-  //     // title: newNote,
-  //     // description: descriptionNote,
-  //     label: labelNote,
-  //     // emotionalLabel: emotionalLabelNote
-  // }
-  //   console.log("resetTask--", resetTask)
-  //   for (let i = 0; i < resetLabel.length; i++) {
-  //     if (changesTask[i].selected) {
-  //       selection.push(changesTask[i].value)
-  //       console.log("if--", selection)
-  //     }      
-  //   }    
-  
-  //   setResetLabel(selection)
-  //   setNotes([...notes, resetTask])
-  //   console.log("notes---", notes)
+    for(let i = 0; i < notes.length; i++){
+
+      if(id === notes[i].id){
+        const change = notes[i].label = label
+        setNotes([...notes])
+        
+        if(label === "done"){
+          setChecked(checked === true)
+          setNotes([...notes])
+         
+        }else{
+          setChecked(checked === false)
+          setNotes([...notes])
+        }
+
+        if(checked === true){
+          const change = notes[i].label === "done"
+        }
+      }
+    }
+    console.log("notes---", notes)
   }
 
   // To remove a Task
@@ -169,22 +171,24 @@ function App() {
     setNotes(newList);
   }
 
-  // To change the labelButton to done if the checkbox is checked
-  const checkedTask = (id)=>{
-    console.log("checkedTask---",id)
+  // To change the LabelButton to done if the checkbox is checked
+  const checkedTask = (id, labelNote)=>{
+
     for(let i = 0; i < notes.length; i++){
-      if(id === notes[i].id){
-        console.log("aaa----", id, notes[i])
-        const change = notes[i].label 
-        const change2 = optionsLabel[2].value
-        // const sum = change = change2
-        console.log("bbb----", change)
-        console.log("ccc----", change2)
-        console.log("ddd----", notes[i].label = "done")
-        // console.log("ddd----", sum)
-        
-        setNotes([...notes, notes[i].label = optionsLabel[2].value])
-        console.log("notas---", ...notes)
+
+      if(id === notes[i].id && checked === false){
+        notes[i].label = optionsLabel[2].value
+
+        setNotes([...notes])
+        setChecked(!checked)
+      }
+
+      // if is unchecked the labe is To Do
+      if(id === notes[i].id && checked === true){        
+        const change = notes[i].label = optionsLabel[0].value
+
+        setNotes([...notes])
+        setChecked(!checked)
       }
     }
   }
@@ -196,8 +200,10 @@ function App() {
         handleWriteNewNote={handleWriteNewNote}
         handleAddNewNote={handleAddNewNote}
         handleWriteDescription={handleWriteDescription}
-        principal optionsLabel={optionsLabel} labelNote={labelNote} handleChooseLabel={handleChooseLabel} handleChangeLabel={handleChangeLabel}
-        emotionalOptions={emotionalOptions} handleChooseEmotionalLabel={handleChooseEmotionalLabel} 
+        // labelButton
+        optionsLabel={optionsLabel} labelNote={labelNote} handleChooseLabel={handleChooseLabel} handleChangeLabel={handleChangeLabel}
+        // emotionalLabel
+        emotionalOptions={emotionalOptions} emotionalLabelNote={emotionalLabelNote} handleChooseEmotionalLabel={handleChooseEmotionalLabel} 
       />
 
       <ListTask 

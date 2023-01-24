@@ -53,7 +53,7 @@ export const StyledEmotionalLabel = styled.label`
     }
 `
 
-export const StyledEmotionalLabelText = styled.span`
+export const StyledEmotionalLabelText = styled.p`
     display: flex;
     align-items: center;
 

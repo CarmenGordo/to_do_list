@@ -6,11 +6,10 @@ export const EmotionCircle = ({emotion, size}) => {
     return(
         <> 
             <StyledEmotionalLabel 
-            className={`-${emotion}`}
-            // todo: onClick to open modal
+                className={`-${emotion}`}
+                // todo: onClick to open modal
             >
-                {/* todo: PETA show the emotional label */}
-                <StyledEmotionalLabelText key={emotion.id}>{emotion}</StyledEmotionalLabelText>
+                <StyledEmotionalLabelText>{emotion}</StyledEmotionalLabelText>
             </StyledEmotionalLabel>
         </>
     )

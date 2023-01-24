@@ -1,25 +1,24 @@
-import { useState } from "react"
 import { StyledListNotes } from "./StyledListTask"
 import { Checkbox } from "../../components/Checkbox/Checkbox"
-import { LabelButton } from "../../components/LabelButton/LabelButton"
 import { StyledLabelButton, StyledOptionsSelect } from "../../components/LabelButton/StyledLabelButton"
 import { EmotionCircle } from "../../components/EmotionLabel/EmotionCircle"
 import { TrashButton } from "../../components/TrashButton/TrashButton"
 
-export const ListTask = ({notes, checkedTask, optionsLabel, handleChangeLabel, handleRemoveTask, size}) =>{
+export const ListTask = ({notes, checked, checkedTask, optionsLabel, handleChangeLabel, handleRemoveTask, size}) =>{
     
-   
     return(
         <>
             {notes.length > 0 ?
             notes.map((note) =>(
-                <StyledListNotes >
+
+                <StyledListNotes id={note.id}>
                     <Checkbox 
+                        labelNote={note.label}
                         checkedTask={checkedTask} 
                         id={note.id} />
-                    <p className="">{note.title}</p>                    
+                    <p className="" id={note.id}>{note.title}</p>                    
 
-                    <StyledLabelButton onChange={handleChangeLabel}>
+                    <StyledLabelButton id={note.id} onChange={(event)=>handleChangeLabel(event,note.id)}  >
                         {optionsLabel?.map((option) => (                   
                             <StyledOptionsSelect 
                                 key={option.id}
@@ -30,8 +29,7 @@ export const ListTask = ({notes, checkedTask, optionsLabel, handleChangeLabel, h
                         ))}    
                     </StyledLabelButton>
 
-                    {/* todo: poner el emotionLabel */}
-                    {/* <EmotionCircle emotion={note.emotionalLabel} /> */}
+                    <EmotionCircle emotion={note.emotionalLabel} />
 
                     <TrashButton 
                         id={note.id}
@@ -39,6 +37,7 @@ export const ListTask = ({notes, checkedTask, optionsLabel, handleChangeLabel, h
                     />
               
                 </StyledListNotes>
+                
             )) : <p>Don´t have any task</p>
 
             }

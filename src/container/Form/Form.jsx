@@ -9,7 +9,7 @@ import { DescriptionTask } from "../../components/DescriptionTask/DescriptionTas
 import { EmotionLabel } from "../../components/EmotionLabel/EmotionLabel"
 
 
-export const Form = ({handleWriteNewNote,handleAddNewNote, handleWriteDescription, optionsLabel, labelNote, handleChooseLabel,handleResetLabel, emotionalOptions,handleChooseEmotionalLabel, size}) =>{
+export const Form = ({handleWriteNewNote,handleAddNewNote, handleWriteDescription, optionsLabel, labelNote, emotionalLabelNote, handleChooseLabel, emotionalOptions, handleChooseEmotionalLabel, size}) =>{
 
     return(
         <>           
@@ -17,9 +17,9 @@ export const Form = ({handleWriteNewNote,handleAddNewNote, handleWriteDescriptio
          
                 <h2>Add a task</h2>
                 <Task required handleWriteNewNote={handleWriteNewNote}/>
-                <LabelButton optionsLabel={optionsLabel} labelNote={labelNote} handleChooseLabel={handleChooseLabel}  />
+                <LabelButton required optionsLabel={optionsLabel} labelNote={labelNote} handleChooseLabel={handleChooseLabel}  />
                 <AddButton />
-                <EmotionLabel emotionalOptions={emotionalOptions} handleChooseEmotionalLabel={handleChooseEmotionalLabel} />
+                <EmotionLabel emotionalOptions={emotionalOptions} emotionalLabelNote={emotionalLabelNote} handleChooseEmotionalLabel={handleChooseEmotionalLabel} />
                 <DescriptionTask handleWriteDescription={handleWriteDescription} />
 
             </StyledForm>
