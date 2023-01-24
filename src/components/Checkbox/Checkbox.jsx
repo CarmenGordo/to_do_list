@@ -1,12 +1,14 @@
 import propTypes from "prop-types"
 import { StyledCheckbox } from "./StyledCheckbox";
 
-export const Checkbox = ({size}) =>{
+export const Checkbox = ({id, checkedTask, size}) =>{
     return(
         <>
             <StyledCheckbox 
                 type="checkbox"
-                className={[`-${size}`]}
+                id={id}
+                className={`-${size}`}
+                onClick={()=>checkedTask(id)}
             />
         </>
     )

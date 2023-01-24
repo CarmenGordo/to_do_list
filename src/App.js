@@ -85,8 +85,7 @@ function App() {
   const [emotionalLabelNote, setEmotionalLabelNote] = useState(emotionalOptions)
   // To reset the task or change somethimg
   // const [resetLabel, setResetLabel] = useState(optionsLabel)
-  // To remove a Task
-  const [remove, setRemove] = useState(exampleNotes)
+
 
 
 
@@ -165,10 +164,29 @@ function App() {
 
   // To remove a Task
   const handleRemoveTask =(id)=>{
-    console.log("removed---")
-
+    const remove = [...notes]
     const newList = remove.filter((note) => note.id !== id);
     setNotes(newList);
+  }
+
+  // To change the labelButton to done if the checkbox is checked
+  const checkedTask = (id)=>{
+    console.log("checkedTask---",id)
+    for(let i = 0; i < notes.length; i++){
+      if(id === notes[i].id){
+        console.log("aaa----", id, notes[i])
+        const change = notes[i].label 
+        const change2 = optionsLabel[2].value
+        // const sum = change = change2
+        console.log("bbb----", change)
+        console.log("ccc----", change2)
+        console.log("ddd----", notes[i].label = "done")
+        // console.log("ddd----", sum)
+        
+        setNotes([...notes, notes[i].label = optionsLabel[2].value])
+        console.log("notas---", ...notes)
+      }
+    }
   }
 
   return (
@@ -185,6 +203,7 @@ function App() {
       <ListTask 
         notes={notes} 
         emotionalOptions={emotionalOptions} 
+        checkedTask={checkedTask}
         optionsLabel={optionsLabel} labelNote={labelNote} handleChangeLabel={handleChangeLabel}
         handleRemoveTask={handleRemoveTask}
       />

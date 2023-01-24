@@ -6,38 +6,42 @@ import { StyledLabelButton, StyledOptionsSelect } from "../../components/LabelBu
 import { EmotionCircle } from "../../components/EmotionLabel/EmotionCircle"
 import { TrashButton } from "../../components/TrashButton/TrashButton"
 
-export const ListTask = ({notes, optionsLabel, handleChangeLabel, handleRemoveTask, size}) =>{
-
+export const ListTask = ({notes, checkedTask, optionsLabel, handleChangeLabel, handleRemoveTask, size}) =>{
+    
+   
     return(
         <>
-            {notes.map((note) =>(
+            {notes.length > 0 ?
+            notes.map((note) =>(
                 <StyledListNotes >
-                    <Checkbox />
-                    <p>{note.title}</p>                    
+                    <Checkbox 
+                        checkedTask={checkedTask} 
+                        id={note.id} />
+                    <p className="">{note.title}</p>                    
 
-                    {/* todo: poner estilos al select */}
                     <StyledLabelButton onChange={handleChangeLabel}>
-                    {optionsLabel?.map((option) => 
-                    (                   
-                    <StyledOptionsSelect 
-                        key={option.id}
-                        value={option.value}
-                        className={`-${option.value}`}
-                        selected={note.label === option.value}
-                    >{option.label}</StyledOptionsSelect>
-                    ))}    
+                        {optionsLabel?.map((option) => (                   
+                            <StyledOptionsSelect 
+                                key={option.id}
+                                value={option.value}
+                                className={`-${option.value}`}
+                                selected={note.label === option.value}
+                            >{option.label}</StyledOptionsSelect>
+                        ))}    
                     </StyledLabelButton>
 
                     {/* todo: poner el emotionLabel */}
                     {/* <EmotionCircle emotion={note.emotionalLabel} /> */}
 
                     <TrashButton 
-                        notes={notes}
+                        id={note.id}
                         handleRemoveTask={handleRemoveTask}
                     />
               
                 </StyledListNotes>
-            ))}
+            )) : <p>Don´t have any task</p>
+
+            }
         </>
     )
 }

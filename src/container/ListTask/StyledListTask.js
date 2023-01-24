@@ -22,5 +22,10 @@ export const StyledListNotes = styled.div`
         max-width: 30px;
         /* border: solid 5px paleturquoise; */
     }
-
+    
+    p{
+        &.-checked{
+            color: red
+        }
+    }
 `
