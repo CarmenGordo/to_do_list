@@ -1,16 +1,26 @@
 import propTypes from "prop-types"
 import { StyledEmotionalLabel, StyledEmotionalLabelText } from "./StyledEmotionLabel"
+import { Modal } from "../../container/Modal/Modal"
 
-export const EmotionCircle = ({emotion, size}) => {
-   
+export const EmotionCircle = ({emotion, id, notes, title, label, description,  openModal, handleOpenModal, size}) => {
     return(
         <> 
-            <StyledEmotionalLabel 
+            <StyledEmotionalLabel key={id}
                 className={`-${emotion}`}
-                // todo: onClick to open modal
+                onClick={()=>handleOpenModal(id)}
             >
+                {
+                console.log("emotion---id----",id)
+
+                }
                 <StyledEmotionalLabelText>{emotion}</StyledEmotionalLabelText>
+
             </StyledEmotionalLabel>
+
+            <Modal id={id} 
+                notes={notes}
+                // title={title} label={label} description={description} emotion={emotion} 
+                openModal={openModal}/>
         </>
     )
 }

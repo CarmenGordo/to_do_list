@@ -6,7 +6,7 @@ export const LabelButton = ({ optionsLabel, labelNote, handleChooseLabel,handleC
     return(
         <>
             <StyledLabelButton
-            isReq 
+                // isReq 
                 className={`-${size}`}
                 onChange={handleChooseLabel}
             >

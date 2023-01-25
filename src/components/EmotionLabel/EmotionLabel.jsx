@@ -9,9 +9,9 @@ export const EmotionLabel = ({emotionalOptions, emotionalLabelNote,handleChooseE
             > 
                 <p>How do I feel about this task?</p>
 
-                {emotionalOptions.map((option)=> (    
+                {emotionalOptions?.map((option, index)=> (    
                     
-                    <StyledEmotionalLabel className={`-${option.value}`}>
+                    <StyledEmotionalLabel key={index} className={`-${option.value}`}>
                         {/* todo: poner img y/o cambiar el color de la bola para cada una de las emociones */}
                         <StyledEmotionalInput 
                             type='checkbox'

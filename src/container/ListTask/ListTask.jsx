@@ -4,14 +4,18 @@ import { StyledLabelButton, StyledOptionsSelect } from "../../components/LabelBu
 import { EmotionCircle } from "../../components/EmotionLabel/EmotionCircle"
 import { TrashButton } from "../../components/TrashButton/TrashButton"
 
-export const ListTask = ({notes, checked, checkedTask, optionsLabel, handleChangeLabel, handleRemoveTask, size}) =>{
+export const ListTask = ({notes, checkedTask, optionsLabel, handleChangeLabel, openModal, handleOpenModal,handleShowTaskByLabel, handleRemoveTask, size}) =>{
     
     return(
         <>
             {notes.length > 0 ?
+            // todo: poner el handleShowTaskByLabel para preguntar
+            // notes.filter((option)=>(option.label === "done"))
+            //    handleShowTaskByLabel ? <h1>aaaaaa</h1> : '',
+
             notes.map((note) =>(
 
-                <StyledListNotes id={note.id}>
+                <StyledListNotes key={note.id}>
                     <Checkbox 
                         labelNote={note.label}
                         checkedTask={checkedTask} 
@@ -29,7 +33,14 @@ export const ListTask = ({notes, checked, checkedTask, optionsLabel, handleChang
                         ))}    
                     </StyledLabelButton>
 
-                    <EmotionCircle emotion={note.emotionalLabel} />
+                    <EmotionCircle 
+                        emotion={note.emotionalLabel} 
+                        notes={notes}
+                        id={note.id} 
+                        // title={note.title} description={note.description} label={note.label}
+                        handleOpenModal={handleOpenModal} 
+                        openModal={openModal}
+                    />
 
                     <TrashButton 
                         id={note.id}
@@ -39,7 +50,7 @@ export const ListTask = ({notes, checked, checkedTask, optionsLabel, handleChang
                 </StyledListNotes>
                 
             )) : <p>Don´t have any task</p>
-
+                    
             }
         </>
     )

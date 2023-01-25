@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { SidebarFilters } from './container/SidebarFilters/SidebarFilters';
 import { Form } from './container/Form/Form';
 import { ListTask } from './container/ListTask/ListTask';
+import { AddButton } from './components/AddButton/AddButton';
 
 // todo: trasladar las exampleNotes
 const exampleNotes = [
@@ -85,6 +87,8 @@ function App() {
   const [emotionalLabelNote, setEmotionalLabelNote] = useState()
   // To change the LabelButton depend on the checkbox
   const [checked, setChecked] = useState(false)
+  // To open and close the Modal
+  const [openModal, setOpenModal] = useState(false)
 
 
 
@@ -172,7 +176,7 @@ function App() {
   }
 
   // To change the LabelButton to done if the checkbox is checked
-  const checkedTask = (id, labelNote)=>{
+  const checkedTask = (id)=>{
 
     for(let i = 0; i < notes.length; i++){
 
@@ -193,13 +197,42 @@ function App() {
     }
   }
 
+  // todo: arreglar modal   To open and close the Modal
+  const handleOpenModal =(id)=>{
+    console.log("id---",id)
+ 
+      console.log("iddddd---",id)
+      // console.log("value---",event.target.value)ç
+        setOpenModal(!openModal)
+
+
+    // setOpenModal(!openModal)
+
+  }
+
+  // To show the task depend on the label (LabelButton)
+  const handleShowTaskByLabel=(id, label)=>{
+    console.log("eleccion---", id)
+    console.log("eleccion---", label)
+  }
+
   return (
     <>
-    
+      <SidebarFilters 
+        // labelButton
+        optionsLabel={optionsLabel}
+        // handleShowAllTask={handleShowAllTask}
+        // emotionalLabel
+        emotionalOptions={emotionalOptions}
+        handleShowTaskByLabel={handleShowTaskByLabel}
+      />
+
       <Form 
         handleWriteNewNote={handleWriteNewNote}
         handleAddNewNote={handleAddNewNote}
         handleWriteDescription={handleWriteDescription}
+        // ask the labelButton selected
+        handleShowTaskByLabel={handleShowTaskByLabel}
         // labelButton
         optionsLabel={optionsLabel} labelNote={labelNote} handleChooseLabel={handleChooseLabel} handleChangeLabel={handleChangeLabel}
         // emotionalLabel
@@ -208,11 +241,19 @@ function App() {
 
       <ListTask 
         notes={notes} 
-        emotionalOptions={emotionalOptions} 
         checkedTask={checkedTask}
+        // emotionalLabel
+        emotionalOptions={emotionalOptions} 
+        // modal
+        handleOpenModal={handleOpenModal} 
+        openModal={openModal}
+        // labelButton
         optionsLabel={optionsLabel} labelNote={labelNote} handleChangeLabel={handleChangeLabel}
+        // trashButton
         handleRemoveTask={handleRemoveTask}
       />
+
+      <AddButton handleOpenModal={handleOpenModal} />
       
     </>
   );

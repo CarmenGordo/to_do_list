@@ -4,7 +4,6 @@ import { StyledForm } from "./StyledForm"
 // Component
 import { Task } from "../../components/Task/Task"
 import {LabelButton} from "../../components/LabelButton/LabelButton"
-import {AddButton} from "../../components/AddButton/AddButton"
 import { DescriptionTask } from "../../components/DescriptionTask/DescriptionTask"
 import { EmotionLabel } from "../../components/EmotionLabel/EmotionLabel"
 
@@ -14,11 +13,11 @@ export const Form = ({handleWriteNewNote,handleAddNewNote, handleWriteDescriptio
     return(
         <>           
             <StyledForm className={`-${size}`} onSubmit={handleAddNewNote}>
-         
+                
                 <h2>Add a task</h2>
                 <Task required handleWriteNewNote={handleWriteNewNote}/>
-                <LabelButton required optionsLabel={optionsLabel} labelNote={labelNote} handleChooseLabel={handleChooseLabel}  />
-                <AddButton />
+                <LabelButton required optionsLabel={optionsLabel} labelNote={labelNote} handleChooseLabel={handleChooseLabel} />
+                <button>Add</button>
                 <EmotionLabel emotionalOptions={emotionalOptions} emotionalLabelNote={emotionalLabelNote} handleChooseEmotionalLabel={handleChooseEmotionalLabel} />
                 <DescriptionTask handleWriteDescription={handleWriteDescription} />
 
