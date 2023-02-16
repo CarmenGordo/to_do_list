@@ -14,7 +14,7 @@ export const Form = ({handleWriteNewNote,handleAddNewNote, handleWriteDescriptio
         <>           
             <StyledForm className={`-${size}`} onSubmit={handleAddNewNote}>
                 
-                <h2>Add a task</h2>
+                <h3>Add a task</h3>
                 <Task required handleWriteNewNote={handleWriteNewNote}/>
                 <LabelButton required optionsLabel={optionsLabel} labelNote={labelNote} handleChooseLabel={handleChooseLabel} />
                 <button>Add</button>

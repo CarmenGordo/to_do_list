@@ -5,7 +5,7 @@ export const DescriptionTask = ({size, description, handleWriteDescription}) => 
     return(
         <>
             <StyledDescriptionTask
-                type="text"
+                // rows="1" cols="20"
                 className={`-${size}`}
                 onChange={handleWriteDescription}
                 placeholder="Write the task description"

@@ -6,13 +6,14 @@ export const SidebarFilters = ({optionsLabel,emotionalOptions, handleShowAllTask
         <>
             <StyledSidebarFiltersContainer>
                 <h3>Label:</h3>
-                <p id="0" select 
-                    onClick={handleShowAllTask}
+                <p id="0" select label="all"
+                    // onClick={handleShowAllTask}
+                    onClick={(label)=>handleShowTaskByLabel(label = "all")}
                 >All the task</p>
 
                 {optionsLabel.map((option)=>(
                     <p id={option.id}
-                        onClick={()=>handleShowTaskByLabel(option.id, option.label)}  
+                        onClick={()=>handleShowTaskByLabel(option.value)}  
                     >{option.label}</p>
                 ))}
 

@@ -7,7 +7,7 @@ export const EmotionLabel = ({emotionalOptions, emotionalLabelNote,handleChooseE
             <StyledEmotionalContainer
                 className={`-${size}`}
             > 
-                <p>How do I feel about this task?</p>
+                <h5>How do I feel about this task?</h5>
 
                 {emotionalOptions?.map((option, index)=> (    
                     

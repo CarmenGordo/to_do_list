@@ -20,3 +20,12 @@ export const StyledModal= styled.div`
     align-items: center;
     position: fixed;
 `
+
+export const StyledModalPrimary= styled.div`
+    width: 200px;
+    background-color: plum;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+`

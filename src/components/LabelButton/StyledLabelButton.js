@@ -1,22 +1,17 @@
 import styled from "styled-components";
+import { responsive, colors } from "../../globalStyles";
 
 export const StyledLabelButton = styled.select`
-    background-color: aliceblue;
+    
+    background-color: plum;
     display: inline;
+    border: solid 1px ${colors.lightGrey};
+    border-radius: 5px;
+    padding: 2px 2px;
+    margin-right: 10px;
 
-    &.-small{
-        max-width: 200px;
-        border: solid 5px palegoldenrod;
-    }
-
-    &.-medium{
-        max-width: 250px;
-        border: solid 5px palegreen;
-    }
-
-    &.-large{
-        max-width: 300px;
-        border: solid 5px paleturquoise;
+    @media screen and (min-width: ${responsive.sm}) {
+        
     }
 `
 export const StyledOptionsSelect = styled.option`

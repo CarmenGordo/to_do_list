@@ -2,7 +2,7 @@ import propTypes from "prop-types"
 import { StyledEmotionalLabel, StyledEmotionalLabelText } from "./StyledEmotionLabel"
 import { Modal } from "../../container/Modal/Modal"
 
-export const EmotionCircle = ({emotion, id, notes, title, label, description,  openModal, handleOpenModal, size}) => {
+export const EmotionCircle = ({emotion, id, notes, title, label, description, openModal, handleOpenModal, size}) => {
     return(
         <> 
             <StyledEmotionalLabel key={id}
@@ -10,7 +10,7 @@ export const EmotionCircle = ({emotion, id, notes, title, label, description,  o
                 onClick={()=>handleOpenModal(id)}
             >
                 {
-                console.log("emotion---id----",id)
+                console.log("EmotionCircle---id----",id)
 
                 }
                 <StyledEmotionalLabelText>{emotion}</StyledEmotionalLabelText>
@@ -18,6 +18,9 @@ export const EmotionCircle = ({emotion, id, notes, title, label, description,  o
             </StyledEmotionalLabel>
 
             <Modal id={id} 
+                primary
+                // todo: NO coge el id bien,
+                // al darle solo aparece el id,no hay forma de salir del modal
                 notes={notes}
                 // title={title} label={label} description={description} emotion={emotion} 
                 openModal={openModal}/>

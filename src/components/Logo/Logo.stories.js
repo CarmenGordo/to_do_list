@@ -1,16 +1,15 @@
-import { Task } from "./Task";
+import { Logo } from "./Logo";
 
 export default{
-    title: "Task",
-    component: Task
+    title: "Logo",
+    component: Logo
 }
 
-const Template = (args) => <Task {...args} />
+const Template = (args) => <Logo {...args} />
 
 export const Small = Template.bind({})
 Small.args = {
     size: "small",
-    
 }
 
 export const Medium = Template.bind({})

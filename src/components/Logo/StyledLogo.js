@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
-export const StyledCheckbox = styled.input`
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
+export const StyledLogoContainer= styled.div`
+    width: 100%;
+    max-width: 80px;
+    height: 80px;
+    background-color: plum;
+    display: inline-block;
 
     &.-small{
+        /* max-width: 80px;
+        height: 80px; */
         border: solid 5px palegoldenrod;
     }
 

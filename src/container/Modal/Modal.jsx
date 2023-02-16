@@ -1,7 +1,8 @@
-import { StyledModalContainer, StyledModal } from "./StyledModal"
+import propTypes from "prop-types"
+import { StyledModalContainer, StyledModal, StyledModalPrimary } from "./StyledModal"
 import { Form } from "../Form/Form"
 
-export const Modal=({primary, emotion, id, title, label, description, openModal, size})=>{
+export const Modal = ({primary, emotion, id, title, label, description, openModal, size})=>{
 
     if(!openModal){
         return false
@@ -11,9 +12,9 @@ export const Modal=({primary, emotion, id, title, label, description, openModal,
         <>  
             {primary ?
                 <StyledModalContainer id={id}>
-                    <StyledModal>
+                    <StyledModalPrimary>
                         <p>{id}</p>
-                    </StyledModal>
+                    </StyledModalPrimary>
                 </StyledModalContainer>
             :
                 <StyledModalContainer>
@@ -24,4 +25,17 @@ export const Modal=({primary, emotion, id, title, label, description, openModal,
             }
         </>
     )
+}
+
+Modal.propTypes = {
+    size: propTypes.oneOf(["small", "medium"]),
+    onClick: propTypes.func,
+    primary: propTypes.bool,
+}
+
+Modal.defaultProps = {
+    size: "small",
+    // todo
+    // onClick: undefined
+    primary: false,
 }

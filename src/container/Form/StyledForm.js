@@ -1,34 +1,46 @@
 import styled from "styled-components";
+import { responsive } from "../../globalStyles";
 
 export const StyledForm = styled.form`
-    /* width: auto; */
-    /* display: flex; */
-    /* justify-content: center; */
-    /* background-color: beige; */
-    
-    @media screen and (min-width: 768px) {
-        background-color: ${props => (props.small ? 'beige' : 'grey')};
-    }
+    display: none;
+    background-color: white;
+    margin: 15px;
+    border-radius: 5px;
+    padding: 10px;
 
-    &.-example{
-        /* todo: arreglar formato de ejemplo */
-        background-color: greenyellow !important;
-    }
+   
+   @media screen and (min-width: ${responsive.xs}){
+        display: block;
+   }
 
-    &.-small{
-        border: solid 5px palegoldenrod;
+    /* &.-small{
+        @media screen {
+            border: solid 5px blue;
+            
+        }
     }
 
     &.-medium{
-        max-width: 25px;
-        border: solid 5px palegreen;
+        @media screen and (min-width: 768px){
+            max-width: 25px;
+            border: solid 5px palegreen;
+        }
     }
 
     &.-large{
-        border: solid 5px paleturquoise;
-    }
+        @media screen and (min-width: 1024px){
+            max-width: 50px;
+            border: solid 5px paleturquoise;
+        }
+    } */
 
     p{
         display: inline;
+    }
+
+    button{
+        background-color: plum;
+        border: none;
+        border-radius: 5px;
     }
 `

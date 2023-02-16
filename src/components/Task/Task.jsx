@@ -25,6 +25,6 @@ Task.propTypes = {
 }
 
 Task.defaultProps = {
-    size: "small",
+    // size: "small",
     // todo: tl Title is Required
 }

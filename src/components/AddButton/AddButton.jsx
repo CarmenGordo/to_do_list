@@ -9,13 +9,14 @@ export const AddButton = ({ openModal, handleOpenModal, size}) =>{
                 className={`-${size}`}
                 onClick={handleOpenModal} 
             >Add</StyledAddButton>
+
             <Modal primary openModal={openModal}/>
         </>
     )
 }
 
 AddButton.propTypes = {
-    size: propTypes.oneOf(["small", "medium", "large"]),
+    size: propTypes.oneOf(["small", "medium"]),
     onClick: propTypes.func
 }
 

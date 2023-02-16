@@ -1,16 +1,20 @@
-import { Task } from "./Task";
+import { Body } from "./Body";
 
-export default{
-    title: "Task",
-    component: Task
+export default {
+    title: "Body",
+    component: Body
 }
 
-const Template = (args) => <Task {...args} />
+const Template = (args) => <Body {...args} />
+
+export const Example = Template.bind({})
+Example.args = {
+    example: true,
+}
 
 export const Small = Template.bind({})
 Small.args = {
     size: "small",
-    
 }
 
 export const Medium = Template.bind({})

@@ -1,5 +1,5 @@
 import propTypes from "prop-types"
-import { StyledOptionsSelect, StyledLabelButton } from "./StyledLabelButton"
+import { StyledLabelButton, StyledOptionsSelect } from "./StyledLabelButton"
 
 export const LabelButton = ({ optionsLabel, labelNote, handleChooseLabel,handleChangeLabel, size}) => {
    
